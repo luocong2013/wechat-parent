@@ -12,6 +12,23 @@
     <name>wechat-manager-webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+        <!--project-->
+        <dependency>
+            <groupId>cn.com.ccyw</groupId>
+            <artifactId>wechat-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.ccyw</groupId>
+            <artifactId>wechat-manager-entity</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.ccyw</groupId>
+            <artifactId>wechat-manager-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--compile-->
         <!--测试-->
         <dependency>
             <groupId>junit</groupId>
