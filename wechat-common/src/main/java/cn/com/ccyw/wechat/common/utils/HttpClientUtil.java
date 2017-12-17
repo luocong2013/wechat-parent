@@ -1,4 +1,4 @@
-package cn.com.ccyw.utils;
+package cn.com.ccyw.wechat.common.utils;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * @author luoc
  * @version V1.0
- * @package cn.com.ccyw.utils
+ * @package cn.com.ccyw.wechat.common.utils
  * @description: Http客户端连接工具类
  * @date 2017/12/16 17:43
  */

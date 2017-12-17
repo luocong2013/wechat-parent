@@ -1,6 +1,6 @@
-package cn.com.ccyw.mapper;
+package cn.com.ccyw.wechat.manager.mapper.weather;
 
-import cn.com.ccyw.entity.YxCcywWeatherData;
+import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherData;
 
 public interface YxCcywWeatherDataMapper {
     /**

@@ -1,4 +1,4 @@
-package cn.com.ccyw.entity;
+package cn.com.ccyw.wechat.manager.entity.weather;
 
 import java.util.Date;
 

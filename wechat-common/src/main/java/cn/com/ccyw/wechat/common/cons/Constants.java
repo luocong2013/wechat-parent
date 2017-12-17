@@ -1,9 +1,9 @@
-package cn.com.ccyw.cons;
+package cn.com.ccyw.wechat.common.cons;
 
 /**
  * @author luoc
  * @version V1.0
- * @package cn.com.ccyw.cons
+ * @package cn.com.ccyw.wechat.common.cons
  * @description: 定义常量的接口
  * @date 2017/12/16 17:20
  */

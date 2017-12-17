@@ -1,6 +1,6 @@
-package cn.com.ccyw.utils;
+package cn.com.ccyw.wechat.common.utils;
 
-import cn.com.ccyw.cons.Constants;
+import cn.com.ccyw.wechat.common.cons.Constants;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -8,7 +8,7 @@ import java.net.URLEncoder;
 /**
  * @author luoc
  * @version V1.0
- * @package cn.com.ccyw.utils
+ * @package cn.com.ccyw.wechat.common.utils
  * @description: 时间工具类
  * @date 2017/12/16 17:35
  */
