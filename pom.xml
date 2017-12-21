@@ -29,6 +29,7 @@
 
         <!--mysql数据库连接驱动-->
         <mysql.connector.version>5.1.42</mysql.connector.version>
+        <druid.version>1.1.6</druid.version>
 
         <javaee.api.version>8.0</javaee.api.version>
         <javax.servlet.api.version>4.0.0</javax.servlet.api.version>
@@ -181,6 +182,14 @@
                 <version>${mysql.connector.version}</version>
             </dependency>
             <!--mysql end-->
+
+            <!--alibaba druid连接池 start-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--alibaba druid连接池 end-->
 
             <!--java ee jar包 start-->
             <dependency>

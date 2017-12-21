@@ -19,11 +19,6 @@
         </dependency>
         <dependency>
             <groupId>cn.com.ccyw</groupId>
-            <artifactId>wechat-manager-entity</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.com.ccyw</groupId>
             <artifactId>wechat-manager-service</artifactId>
             <version>${project.version}</version>
         </dependency>

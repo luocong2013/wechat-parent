@@ -16,11 +16,6 @@
         <!--project-->
         <dependency>
             <groupId>cn.com.ccyw</groupId>
-            <artifactId>wechat-manager-entity</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.com.ccyw</groupId>
             <artifactId>wechat-manager-mapper</artifactId>
             <version>${project.version}</version>
         </dependency>
