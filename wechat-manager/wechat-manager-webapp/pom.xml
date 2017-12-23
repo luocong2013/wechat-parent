@@ -15,10 +15,6 @@
         <!--project-->
         <dependency>
             <groupId>cn.com.ccyw</groupId>
-            <artifactId>wechat-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.com.ccyw</groupId>
             <artifactId>wechat-manager-service</artifactId>
             <version>${project.version}</version>
         </dependency>

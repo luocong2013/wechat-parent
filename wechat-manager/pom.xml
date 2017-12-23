@@ -18,15 +18,13 @@
         <module>wechat-manager-webapp</module>
     </modules>
 
-    <dependencyManagement>
-        <dependencies>
-            <!--project-->
-            <dependency>
-                <groupId>cn.com.ccyw</groupId>
-                <artifactId>wechat-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
+        <!--project-->
+        <dependency>
+            <groupId>cn.com.ccyw</groupId>
+            <artifactId>wechat-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
