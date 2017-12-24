@@ -20,6 +20,10 @@
         </dependency>
 
         <!--compile-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
         <!--测试-->
         <dependency>
             <groupId>junit</groupId>

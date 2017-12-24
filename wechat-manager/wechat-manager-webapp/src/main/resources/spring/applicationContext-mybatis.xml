@@ -18,7 +18,7 @@
     <!--Mapper接口所在包名，Spring会自动查找其下的类-->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--扫描包路径，如果需要扫描多个包，中间用半角逗号隔开-->
-        <property name="basePackage" value="cn.com.ccyw.wechat.manager.mapper" />
+        <property name="basePackage" value="cn.com.ccyw.**.mapper" />
         <!--如果只有一个数据源可以不用指定，但是有多个数据源必须指定-->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>

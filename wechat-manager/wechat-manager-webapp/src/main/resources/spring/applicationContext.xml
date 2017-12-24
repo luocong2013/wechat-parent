@@ -13,10 +13,15 @@
 
     <!--自动扫描(需要自动注入的类，对于那些类上有注解：@Repository、@Service、@Controller、@Component都进行注入)-->
     <!--因为 Spring MVC 是 Spring 的子容器，所以我们在 Spring MVC 的配置中再指定扫描 Controller 的注解，这里是父容器的配置地方-->
+    <!--Ant通配符：
+        1：?  匹配任意单字符
+        2：*  匹配0或者任意数量的字符
+        3：** 匹配0或者更多的目录
+    -->
     <!--注解注入的相关材料可以看：-->
     <!--http://blog.csdn.net/u012763117/article/details/17253849-->
     <!--http://casheen.iteye.com/blog/295348-->
     <!--http://blog.csdn.net/zhang854429783/article/details/6785574-->
-    <context:component-scan base-package="cn.com.ccyw.**.mapper,cn.com.ccyw.**.service"/>
+    <context:component-scan base-package="cn.com.ccyw.**.mapper,cn.com.ccyw.**.dao,cn.com.ccyw.**.service"/>
 
 </beans>
