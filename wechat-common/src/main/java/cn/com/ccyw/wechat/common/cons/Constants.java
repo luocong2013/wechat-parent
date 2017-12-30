@@ -25,11 +25,23 @@ public interface Constants {
     /**
      * 微信公众平台AppID
      */
-    String APP_ID = "wxe4bad912f4f7c303";
+    String APP_ID = "wxb1eb4632ddb03ed0";
     /**
      * 微信公众平台AppSecret
      */
-    String APP_SECRET = "3621daba612ce7c988f0a141dc0bb0f7";
+    String APP_SECRET = "14e01b078c73fd04b15e7a1450f7a9b4";
+    /**
+     * 获取access_token的接口地址(GET请求)
+     */
+    String ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET";
+    /**
+     * 菜单创建接口(POST请求)
+     */
+    String MENU_CREATE_URL = " https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";
+    /**
+     * 请求消息内容匹配
+     */
+    String REQ_MESSAGE_SUFFIX = "天气";
 
     /*************************************************微信消息类型 start********************************************************/
     /**

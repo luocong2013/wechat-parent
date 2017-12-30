@@ -25,9 +25,7 @@ import java.io.PrintWriter;
 @Controller
 @RequestMapping(value = "/coreController")
 public class CoreController {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(CoreController.class);
-
 
     @Autowired
     private CoreService coreService;

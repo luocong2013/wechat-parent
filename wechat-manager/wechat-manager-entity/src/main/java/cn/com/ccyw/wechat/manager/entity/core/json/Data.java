@@ -1,0 +1,133 @@
+package cn.com.ccyw.wechat.manager.entity.core.json;
+
+import java.io.Serializable;
+
+/**
+ * @author luoc
+ * @version V1.0
+ * @package cn.com.ccyw.wechat.manager.entity.core.json
+ * @description: TODO
+ * @date 2017/12/30 17:21
+ */
+public class Data implements Serializable {
+    /**
+     * 日期
+     */
+    private String date;
+    /**
+     * 日出时间
+     */
+    private String sunrise;
+    /**
+     * 最高温度
+     */
+    private String high;
+    /**
+     * 最低温度
+     */
+    private String low;
+    /**
+     * 日落时间
+     */
+    private String sunset;
+    /**
+     * 空气质量指数
+     */
+    private Integer aqi;
+    /**
+     * 风向
+     */
+    private String fx;
+    /**
+     * 风力
+     */
+    private String fl;
+    /**
+     * 天气
+     */
+    private String type;
+    /**
+     * 温馨提示
+     */
+    private String notice;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getSunrise() {
+        return sunrise;
+    }
+
+    public void setSunrise(String sunrise) {
+        this.sunrise = sunrise;
+    }
+
+    public String getHigh() {
+        return high;
+    }
+
+    public void setHigh(String high) {
+        this.high = high;
+    }
+
+    public String getLow() {
+        return low;
+    }
+
+    public void setLow(String low) {
+        this.low = low;
+    }
+
+    public String getSunset() {
+        return sunset;
+    }
+
+    public void setSunset(String sunset) {
+        this.sunset = sunset;
+    }
+
+    public Integer getAqi() {
+        return aqi;
+    }
+
+    public void setAqi(Integer aqi) {
+        this.aqi = aqi;
+    }
+
+    public String getFx() {
+        return fx;
+    }
+
+    public void setFx(String fx) {
+        this.fx = fx;
+    }
+
+    public String getFl() {
+        return fl;
+    }
+
+    public void setFl(String fl) {
+        this.fl = fl;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getNotice() {
+        return notice;
+    }
+
+    public void setNotice(String notice) {
+        this.notice = notice;
+    }
+}

@@ -1,7 +1,5 @@
 package cn.com.ccyw.wechat.manager.entity.weather;
 
-import java.util.Date;
-
 public class YxCcywWeatherHttpstatus {
     /**
      *
@@ -19,7 +17,7 @@ public class YxCcywWeatherHttpstatus {
      *
      * @mbg.generated
      */
-    private Date date;
+    private String date;
 
     /**
      *
@@ -89,7 +87,7 @@ public class YxCcywWeatherHttpstatus {
      *
      * @mbg.generated
      */
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -101,8 +99,8 @@ public class YxCcywWeatherHttpstatus {
      *
      * @mbg.generated
      */
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(String date) {
+        this.date = date == null ? null : date.trim();
     }
 
     /**

@@ -3,17 +3,13 @@ package cn.com.ccyw.wechat.manager.service.core.impl;
 import cn.com.ccyw.wechat.common.cons.Constants;
 import cn.com.ccyw.wechat.manager.dao.core.MessageDao;
 import cn.com.ccyw.wechat.manager.dao.core.Sha1Dao;
-import cn.com.ccyw.wechat.manager.entity.core.response.Article;
-import cn.com.ccyw.wechat.manager.entity.core.response.NewsMessage;
-import cn.com.ccyw.wechat.manager.entity.core.response.TextMessage;
 import cn.com.ccyw.wechat.manager.service.core.CoreService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -71,19 +67,12 @@ public class CoreServiceImpl implements CoreService {
             //消息类型
             String msgType = reqMap.get("MsgType");
 
-            //回复文本消息
-            TextMessage textMessage = new TextMessage();
-            textMessage.setToUserName(fromUserName);
-            textMessage.setFromUserName(toUserName);
-            textMessage.setCreateTime(System.currentTimeMillis());
-            textMessage.setMsgType(Constants.RESP_MESSAGE_TYPE_TEXT);
-
+            //文本消息
             if(msgType.equals(Constants.REQ_MESSAGE_TYPE_TEXT)){
-                String content = reqMap.get("Content");
-
-                respContent = content;
-                textMessage.setContent(respContent);
-                repMsg = messageDao.textMessageToXml(textMessage);
+                //接收到的文本内容
+                String content = StringUtils.trim(reqMap.get("Content"));
+                //获取返回的文本信息
+                repMsg = messageDao.getTextMessage(fromUserName, toUserName, content);
             }
             //事件推送
             else if(msgType.equals(Constants.REQ_MESSAGE_TYPE_EVENT)){
@@ -93,48 +82,13 @@ public class CoreServiceImpl implements CoreService {
                 if(eventType.equals(Constants.EVENT_TYPE_SUBSCRIBE)){
                     respContent = "/::)O(∩_∩)O谢谢你的关注！";
 
-                    textMessage.setContent(respContent);
-                    repMsg = messageDao.textMessageToXml(textMessage);
-                } else if(eventType.equals(Constants.EVENT_TYPE_CLICK)){
-                    //返回图文消息
-                    NewsMessage nm = new NewsMessage();
-                    nm.setToUserName(fromUserName);
-                    nm.setFromUserName(toUserName);
-                    nm.setCreateTime(System.currentTimeMillis());
-                    nm.setMsgType(Constants.RESP_MESSAGE_TYPE_NEWS);
-
-                    List<Article> listarticle = new ArrayList<>();
-
-                    //点击菜单拉取消息时的事件推送
-                    //事件Key值，与创建自定义菜单时的key值相等
-                    String eventKey = reqMap.get("EventKey");
-                    if(eventKey.equals("kbn11")){
-                        //关于我们
-                        Article article1 = new Article();
-                        article1.setTitle("关于我们");
-                        article1.setDescription("很值得加盟的赚钱项目——“江南南方馄饨王”");
-                        article1.setPicUrl("http://123.56.113.159/javatext2013/images/old/a1.jpg");
-                        article1.setUrl("http://123.56.113.159/javatext2013/aboutme.html");
-
-                        listarticle.add(article1);
-                    } else if(eventKey.equals("kbn21")){
-                        //加盟故事
-
-                    } else if(eventKey.equals("kbn23")){
-                        //旗下店面
-
-                    } else if(eventKey.equals("kbn32")){
-                        //最新优惠
-                    }
-
-                    nm.setArticleCount(listarticle.size());
-                    nm.setArticles(listarticle);
-                    repMsg = messageDao.newsMessageToXml(nm);
+                    //textMessage.setContent(respContent);
+                   // repMsg = messageDao.textMessageToXml(textMessage);
                 }
             } else{
                 //其他情况返回默认文本消息
-                textMessage.setContent(respContent);
-                repMsg = messageDao.textMessageToXml(textMessage);
+                //textMessage.setContent(respContent);
+                //repMsg = messageDao.textMessageToXml(textMessage);
             }
         } catch (Exception e) {
             e.printStackTrace();

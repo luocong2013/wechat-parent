@@ -1,7 +1,5 @@
 package cn.com.ccyw.wechat.manager.entity.weather;
 
-import java.util.Date;
-
 public class YxCcywWeatherData {
     /**
      *
@@ -37,7 +35,7 @@ public class YxCcywWeatherData {
      *
      * @mbg.generated
      */
-    private Date sunrise;
+    private String sunrise;
 
     /**
      *
@@ -64,7 +62,7 @@ public class YxCcywWeatherData {
      *
      * @mbg.generated
      */
-    private Date sunset;
+    private String sunset;
 
     /**
      *
@@ -191,7 +189,7 @@ public class YxCcywWeatherData {
      *
      * @mbg.generated
      */
-    public Date getSunrise() {
+    public String getSunrise() {
         return sunrise;
     }
 
@@ -203,8 +201,8 @@ public class YxCcywWeatherData {
      *
      * @mbg.generated
      */
-    public void setSunrise(Date sunrise) {
-        this.sunrise = sunrise;
+    public void setSunrise(String sunrise) {
+        this.sunrise = sunrise == null ? null : sunrise.trim();
     }
 
     /**
@@ -263,7 +261,7 @@ public class YxCcywWeatherData {
      *
      * @mbg.generated
      */
-    public Date getSunset() {
+    public String getSunset() {
         return sunset;
     }
 
@@ -275,8 +273,8 @@ public class YxCcywWeatherData {
      *
      * @mbg.generated
      */
-    public void setSunset(Date sunset) {
-        this.sunset = sunset;
+    public void setSunset(String sunset) {
+        this.sunset = sunset == null ? null : sunset.trim();
     }
 
     /**

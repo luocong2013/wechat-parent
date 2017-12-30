@@ -11,6 +11,7 @@
     <modules>
         <module>wechat-common</module>
         <module>wechat-manager</module>
+        <module>wechat-menu</module>
     </modules>
 
     <properties>
@@ -38,6 +39,8 @@
         <jackson.databind.version>2.9.3</jackson.databind.version>
 
         <!--工具包-->
+        <hutool.all.version>3.3.0</hutool.all.version>
+
         <commons.lang.version>2.6</commons.lang.version>
         <commons.lang3.version>3.7</commons.lang3.version>
         <commons.io.version>2.5</commons.io.version>
@@ -219,7 +222,17 @@
             <!--httpclient start-->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient-osgi</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
                 <version>${httpclient.version}</version>
             </dependency>
             <!--httpclient end-->
@@ -233,6 +246,12 @@
             <!--jackson databind end-->
 
             <!--工具包 start-->
+            <!--hutool工具包-->
+            <dependency>
+                <groupId>com.xiaoleilu</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.all.version}</version>
+            </dependency>
             <dependency>
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>

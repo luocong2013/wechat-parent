@@ -50,16 +50,15 @@ public class DateUtil {
     }
 
     /**
-     * 日期格式化yyyy-MM-dd
+     * 日期格式化
      *
      * @param date
+     * @param formatStr
      * @return
      */
-    public static Date formatDate(String date, String format) {
-        try {
-            return new SimpleDateFormat(format).parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
+    public static String getDateFormat(Date date, String formatStr) {
+        if (StringUtils.isNotBlank(formatStr)) {
+            return new SimpleDateFormat(formatStr).format(date);
         }
         return null;
     }
@@ -95,15 +94,16 @@ public class DateUtil {
     }
 
     /**
-     * 日期格式化
+     * 日期格式化yyyy-MM-dd
      *
      * @param date
-     * @param formatStr
      * @return
      */
-    public static String getDateFormat(Date date, String formatStr) {
-        if (StringUtils.isNotBlank(formatStr)) {
-            return new SimpleDateFormat(formatStr).format(date);
+    public static Date formatDate(String date, String format) {
+        try {
+            return new SimpleDateFormat(format).parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -136,24 +136,6 @@ public class DateUtil {
             e.printStackTrace();
         }
         return null;
-    }
-
-    /**
-     * 获取当前日期(yyyy-MM-dd)
-     *
-     * @return
-     */
-    public static Date getNowDate() {
-        return getDateFormat(dateFormat.format(new Date()));
-    }
-
-    /**
-     * 获取当前日期时间(yyyy-MM-dd HH:mm:ss)
-     *
-     * @return
-     */
-    public static Date getNowDateTime() {
-        return getDateTimeFormat(dateTimeFormat.format(new Date()));
     }
 
     /**
@@ -332,7 +314,7 @@ public class DateUtil {
         // 格式化日期(yy-MM-dd)
         startDate = DateUtil.getDateFormat(DateUtil.getDateFormat(startDate));
         endDate = DateUtil.getDateFormat(DateUtil.getDateFormat(endDate));
-        List<Date> dates = new ArrayList<Date>();
+        List<Date> dates = new ArrayList<>();
         gregorianCalendar.setTime(startDate);
         dates.add(gregorianCalendar.getTime());
         while (gregorianCalendar.getTime().compareTo(endDate) < 0) {
