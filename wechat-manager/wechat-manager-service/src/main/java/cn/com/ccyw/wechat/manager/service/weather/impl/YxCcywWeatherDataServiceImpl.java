@@ -6,6 +6,8 @@ import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author luoc
  * @version V1.0
@@ -47,5 +49,10 @@ public class YxCcywWeatherDataServiceImpl implements YxCcywWeatherDataService {
     @Override
     public int updateByPrimaryKey(YxCcywWeatherData record) {
         return yxCcywWeatherDataMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public int batchInsert(List<YxCcywWeatherData> records) {
+        return yxCcywWeatherDataMapper.batchInsert(records);
     }
 }

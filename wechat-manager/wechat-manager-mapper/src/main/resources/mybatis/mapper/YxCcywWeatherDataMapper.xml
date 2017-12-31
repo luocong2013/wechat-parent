@@ -203,4 +203,21 @@
       notice = #{notice,jdbcType=VARCHAR}
     where dataid = #{dataid,jdbcType=VARCHAR}
   </update>
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into yx_ccyw_weather_data (<include refid="Base_Column_List" />)
+    <foreach collection="list" item="item" index="index" separator="union all">
+      select #{item.dataid,jdbcType=VARCHAR},
+      #{item.statusid,jdbcType=VARCHAR},
+      #{item.date,jdbcType=VARCHAR},
+      #{item.sunrise,jdbcType=VARCHAR},
+      #{item.high,jdbcType=VARCHAR},
+      #{item.low,jdbcType=VARCHAR},
+      #{item.sunset,jdbcType=VARCHAR},
+      #{item.aqi,jdbcType=INTEGER},
+      #{item.fx,jdbcType=VARCHAR},
+      #{item.fl,jdbcType=VARCHAR},
+      #{item.type,jdbcType=VARCHAR},
+      #{item.notice,jdbcType=VARCHAR} from dual
+    </foreach>
+  </insert>
 </mapper>

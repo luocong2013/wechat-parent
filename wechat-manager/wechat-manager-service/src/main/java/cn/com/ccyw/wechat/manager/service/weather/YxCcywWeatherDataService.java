@@ -2,6 +2,8 @@ package cn.com.ccyw.wechat.manager.service.weather;
 
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherData;
 
+import java.util.List;
+
 /**
  * @author luoc
  * @version V1.0
@@ -51,4 +53,11 @@ public interface YxCcywWeatherDataService {
      * @return
      */
     int updateByPrimaryKey(YxCcywWeatherData record);
+
+    /**
+     * 批量插入数据
+     * @param records
+     * @return
+     */
+    int batchInsert(List<YxCcywWeatherData> records);
 }

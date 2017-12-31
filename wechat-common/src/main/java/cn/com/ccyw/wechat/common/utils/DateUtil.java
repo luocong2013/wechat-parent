@@ -56,7 +56,7 @@ public class DateUtil {
      * @param formatStr
      * @return
      */
-    public static String getDateFormat(Date date, String formatStr) {
+    public static String formatDate(Date date, String formatStr) {
         if (StringUtils.isNotBlank(formatStr)) {
             return new SimpleDateFormat(formatStr).format(date);
         }
@@ -69,7 +69,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static String getDateFormat(Date date) {
+    public static String formatDate(Date date) {
         return dateFormat.format(date);
     }
 
@@ -79,7 +79,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static String getDateTimeFormat(Date date) {
+    public static String formatDateTime(Date date) {
         return dateTimeFormat.format(date);
     }
 
@@ -89,7 +89,7 @@ public class DateUtil {
      * @param date
      * @return HH:mm:ss
      */
-    public static String getTimeFormat(Date date) {
+    public static String formatTime(Date date) {
         return timeFormat.format(date);
     }
 
@@ -99,7 +99,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static Date formatDate(String date, String format) {
+    public static Date parseDate(String date, String format) {
         try {
             return new SimpleDateFormat(format).parse(date);
         } catch (ParseException e) {
@@ -114,7 +114,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static Date getDateFormat(String date) {
+    public static Date parseDate(String date) {
         try {
             return dateFormat.parse(date);
         } catch (ParseException e) {
@@ -129,7 +129,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static Date getDateTimeFormat(String date) {
+    public static Date parseDateTime(String date) {
         try {
             return dateTimeFormat.parse(date);
         } catch (ParseException e) {
@@ -312,8 +312,8 @@ public class DateUtil {
             return null;
         }
         // 格式化日期(yy-MM-dd)
-        startDate = DateUtil.getDateFormat(DateUtil.getDateFormat(startDate));
-        endDate = DateUtil.getDateFormat(DateUtil.getDateFormat(endDate));
+        startDate = DateUtil.parseDate(DateUtil.formatDate(startDate));
+        endDate = DateUtil.parseDate(DateUtil.formatDate(endDate));
         List<Date> dates = new ArrayList<>();
         gregorianCalendar.setTime(startDate);
         dates.add(gregorianCalendar.getTime());
