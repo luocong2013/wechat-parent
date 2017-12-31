@@ -76,6 +76,12 @@
 
 
     <!-- ########################################### servlet start  ########################################## -->
+    <!--去掉*.ico-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.ico</url-pattern>
+    </servlet-mapping>
+
     <!--Spring MVC servlet-->
     <servlet>
         <servlet-name>SpringMVC</servlet-name>

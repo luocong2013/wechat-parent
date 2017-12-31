@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.3.xsd
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+    <!--上面的xsd最好和当前使用的Spring版本号一致,如果换了Spring版本,这个最好也跟着改-->
+
+    <!--自动扫描定时器包-->
+    <context:component-scan base-package="cn.com.ccyw.**.timer"/>
+    <!--启动注解驱动的定时任务-->
+    <task:annotation-driven scheduler="myScheduler" />
+    <!--配置定时任务的线程池-->
+    <task:scheduler id="myScheduler" pool-size="5" />
+</beans>

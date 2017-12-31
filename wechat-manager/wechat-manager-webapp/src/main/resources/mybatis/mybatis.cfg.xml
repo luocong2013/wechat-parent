@@ -14,6 +14,7 @@
         <!--本地缓存机制-->
         <setting name="localCacheScope" value="STATEMENT"/>
         <setting name="defaultExecutorType" value="SIMPLE"/>
+        <!--开启驼峰命名转换-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--允许JDBC支持自动生成主键,需要驱动的兼容-->
         <setting name="useGeneratedKeys" value="true"/>
