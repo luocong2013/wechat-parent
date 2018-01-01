@@ -48,4 +48,9 @@ public class YxCcywWeatherHttpstatusServiceImpl implements YxCcywWeatherHttpstat
     public int updateByPrimaryKey(YxCcywWeatherHttpstatus record) {
         return yxCcywWeatherHttpstatusMapper.updateByPrimaryKey(record);
     }
+
+    @Override
+    public YxCcywWeatherHttpstatus selectByEntitySelective(YxCcywWeatherHttpstatus record) {
+        return yxCcywWeatherHttpstatusMapper.selectByEntitySelective(record);
+    }
 }

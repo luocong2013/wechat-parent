@@ -1,9 +1,9 @@
 package cn.com.ccyw.wechat.manager.service.core.impl;
 
 import cn.com.ccyw.wechat.common.cons.Constants;
-import cn.com.ccyw.wechat.manager.dao.core.MessageDao;
 import cn.com.ccyw.wechat.manager.dao.core.Sha1Dao;
 import cn.com.ccyw.wechat.manager.service.core.CoreService;
+import cn.com.ccyw.wechat.manager.service.core.MessageService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class CoreServiceImpl implements CoreService {
     @Autowired
     private Sha1Dao sha1Dao;
     @Autowired
-    private MessageDao messageDao;
+    private MessageService messageService;
 
     /**
      * 验证签名 TOKEN
@@ -55,10 +55,10 @@ public class CoreServiceImpl implements CoreService {
         String repMsg = null;
         try {
             //默认返回的文本消息内容
-            String respContent = "请求处理异常，请稍后尝试...";
+            String respContent = "请求处理异常，请稍后尝试……";
 
             //xml请求解析
-            Map<String, String> reqMap = messageDao.paresXml(reqest);
+            Map<String, String> reqMap = messageService.paresXml(reqest);
 
             //发送方账号(OpenID)
             String fromUserName = reqMap.get("FromUserName");
@@ -72,7 +72,7 @@ public class CoreServiceImpl implements CoreService {
                 //接收到的文本内容
                 String content = StringUtils.trim(reqMap.get("Content"));
                 //获取返回的文本信息
-                repMsg = messageDao.getTextMessage(fromUserName, toUserName, content);
+                repMsg = messageService.getTextMessage(fromUserName, toUserName, content);
             }
             //事件推送
             else if(msgType.equals(Constants.REQ_MESSAGE_TYPE_EVENT)){
@@ -81,14 +81,11 @@ public class CoreServiceImpl implements CoreService {
 
                 if(eventType.equals(Constants.EVENT_TYPE_SUBSCRIBE)){
                     respContent = "/::)O(∩_∩)O谢谢你的关注！";
-
-                    //textMessage.setContent(respContent);
-                   // repMsg = messageDao.textMessageToXml(textMessage);
+                   repMsg = messageService.getTextMessage(fromUserName, toUserName, respContent);
                 }
             } else{
                 //其他情况返回默认文本消息
-                //textMessage.setContent(respContent);
-                //repMsg = messageDao.textMessageToXml(textMessage);
+                repMsg = messageService.getTextMessage(fromUserName, toUserName, respContent);
             }
         } catch (Exception e) {
             e.printStackTrace();

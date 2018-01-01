@@ -57,4 +57,11 @@ public interface YxCcywWeatherDatatitleService {
      * @return
      */
     int updateByPrimaryKey(YxCcywWeatherDatatitle record);
+
+    /**
+     * 通过statusid查询数据
+     * @param statusid
+     * @return
+     */
+    YxCcywWeatherDatatitle selectByStatusId(String statusid);
 }

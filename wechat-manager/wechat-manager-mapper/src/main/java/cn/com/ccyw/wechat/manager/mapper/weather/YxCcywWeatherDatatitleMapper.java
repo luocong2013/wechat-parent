@@ -50,4 +50,11 @@ public interface YxCcywWeatherDatatitleMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(YxCcywWeatherDatatitle record);
+
+    /**
+     * 通过statusid查询数据
+     * @param statusid
+     * @return
+     */
+    YxCcywWeatherDatatitle selectByStatusId(String statusid);
 }

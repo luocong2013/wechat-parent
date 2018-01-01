@@ -59,4 +59,11 @@ public interface YxCcywWeatherDataMapper {
      * @return
      */
     int batchInsert(List<YxCcywWeatherData> records);
+
+    /**
+     * 通过statusid查询数据集
+     * @param statusid
+     * @return
+     */
+    List<YxCcywWeatherData> selectByStatusId(String statusid);
 }

@@ -50,4 +50,11 @@ public interface YxCcywWeatherHttpstatusMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(YxCcywWeatherHttpstatus record);
+
+    /**
+     * 条件查询（空字段不查询）
+     * @param record
+     * @return
+     */
+    YxCcywWeatherHttpstatus selectByEntitySelective(YxCcywWeatherHttpstatus record);
 }

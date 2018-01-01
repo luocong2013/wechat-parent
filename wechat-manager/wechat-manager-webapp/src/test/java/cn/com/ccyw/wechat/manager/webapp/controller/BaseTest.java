@@ -3,6 +3,7 @@ package cn.com.ccyw.wechat.manager.webapp.controller;
 import cn.com.ccyw.wechat.common.utils.StringUtil;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherData;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherHttpstatus;
+import cn.com.ccyw.wechat.manager.service.core.MessageService;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDataService;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDatatitleService;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherHttpstatusService;
@@ -31,6 +32,8 @@ public class BaseTest {
     private YxCcywWeatherDatatitleService yxCcywWeatherDatatitleService;
     @Autowired
     private YxCcywWeatherDataService yxCcywWeatherDataService;
+    @Autowired
+    private MessageService messageService;
 
     @Test
     public void insert() throws Exception {
@@ -40,6 +43,8 @@ public class BaseTest {
         httpstatus.setStatus(200);
         httpstatus.setCity("成都");
         httpstatus.setCount(605);
+
+
         httpstatus.setMessage("今天天气晴朗");
         yxCcywWeatherHttpstatusService.insert(httpstatus);
     }
@@ -68,4 +73,20 @@ public class BaseTest {
         System.out.println("完成");
     }
 
+    @Test
+    public void select() throws Exception {
+        /*YxCcywWeatherHttpstatus yxCcywWeatherHttpstatus = new YxCcywWeatherHttpstatus();
+        yxCcywWeatherHttpstatus.setDate("2018-01-01");
+        yxCcywWeatherHttpstatus.setCity("成都1");
+        YxCcywWeatherHttpstatus httpstatus = yxCcywWeatherHttpstatusService.selectByEntitySelective(yxCcywWeatherHttpstatus);
+        System.out.println(Objects.isNull(httpstatus) ? "object is null" : httpstatus.getMessage());*/
+
+        /*YxCcywWeatherDatatitle datatitle = yxCcywWeatherDatatitleService.selectByStatusId("20180101226");
+        System.out.println(datatitle.getGanmao());*/
+
+        /*List<YxCcywWeatherData> datas = yxCcywWeatherDataService.selectByStatusId("20180101226");
+        datas.forEach(item -> System.out.println(item.getNotice()));*/
+
+        System.out.println(messageService.getWeatherContent("遂宁"));
+    }
 }

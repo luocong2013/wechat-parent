@@ -14,6 +14,7 @@ import java.util.List;
 public interface YxCcywWeatherDataService {
     /**
      * 根据主键删除数据
+     *
      * @param dataid
      * @return
      */
@@ -21,6 +22,7 @@ public interface YxCcywWeatherDataService {
 
     /**
      * 插入数据
+     *
      * @param record
      * @return
      */
@@ -28,6 +30,7 @@ public interface YxCcywWeatherDataService {
 
     /**
      * 插入非空数据
+     *
      * @param record
      * @return
      */
@@ -35,6 +38,7 @@ public interface YxCcywWeatherDataService {
 
     /**
      * 根据主键查询数据
+     *
      * @param dataid
      * @return
      */
@@ -42,6 +46,7 @@ public interface YxCcywWeatherDataService {
 
     /**
      * 根据主键修改非空数据
+     *
      * @param record
      * @return
      */
@@ -49,6 +54,7 @@ public interface YxCcywWeatherDataService {
 
     /**
      * 根据主键修改数据
+     *
      * @param record
      * @return
      */
@@ -56,8 +62,17 @@ public interface YxCcywWeatherDataService {
 
     /**
      * 批量插入数据
+     *
      * @param records
      * @return
      */
     int batchInsert(List<YxCcywWeatherData> records);
+
+    /**
+     * 通过statusid查询数据集
+     *
+     * @param statusid
+     * @return
+     */
+    List<YxCcywWeatherData> selectByStatusId(String statusid);
 }

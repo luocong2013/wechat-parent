@@ -55,4 +55,9 @@ public class YxCcywWeatherDataServiceImpl implements YxCcywWeatherDataService {
     public int batchInsert(List<YxCcywWeatherData> records) {
         return yxCcywWeatherDataMapper.batchInsert(records);
     }
+
+    @Override
+    public List<YxCcywWeatherData> selectByStatusId(String statusid) {
+        return yxCcywWeatherDataMapper.selectByStatusId(statusid);
+    }
 }

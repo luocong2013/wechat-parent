@@ -48,4 +48,9 @@ public class YxCcywWeatherDatatitltServiceImpl implements YxCcywWeatherDatatitle
     public int updateByPrimaryKey(YxCcywWeatherDatatitle record) {
         return yxCcywWeatherDatatitleMapper.updateByPrimaryKey(record);
     }
+
+    @Override
+    public YxCcywWeatherDatatitle selectByStatusId(String statusid) {
+        return yxCcywWeatherDatatitleMapper.selectByStatusId(statusid);
+    }
 }
