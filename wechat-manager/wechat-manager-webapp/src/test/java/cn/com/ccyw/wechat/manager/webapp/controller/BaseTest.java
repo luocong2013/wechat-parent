@@ -2,11 +2,16 @@ package cn.com.ccyw.wechat.manager.webapp.controller;
 
 import cn.com.ccyw.wechat.common.utils.StringUtil;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherData;
+import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherDatatitle;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherHttpstatus;
+import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherDataMapper;
+import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherDatatitleMapper;
+import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherHttpstatusMapper;
 import cn.com.ccyw.wechat.manager.service.core.MessageService;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDataService;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDatatitleService;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherHttpstatusService;
+import com.google.gson.Gson;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +39,12 @@ public class BaseTest {
     private YxCcywWeatherDataService yxCcywWeatherDataService;
     @Autowired
     private MessageService messageService;
+    @Autowired
+    private YxCcywWeatherHttpstatusMapper yxCcywWeatherHttpstatusMapper;
+    @Autowired
+    private YxCcywWeatherDatatitleMapper yxCcywWeatherDatatitleMapper;
+    @Autowired
+    private YxCcywWeatherDataMapper yxCcywWeatherDataMapper;
 
     @Test
     public void insert() throws Exception {
@@ -77,16 +88,40 @@ public class BaseTest {
     public void select() throws Exception {
         /*YxCcywWeatherHttpstatus yxCcywWeatherHttpstatus = new YxCcywWeatherHttpstatus();
         yxCcywWeatherHttpstatus.setDate("2018-01-01");
-        yxCcywWeatherHttpstatus.setCity("成都1");
+        yxCcywWeatherHttpstatus.setCity("成都");
         YxCcywWeatherHttpstatus httpstatus = yxCcywWeatherHttpstatusService.selectByEntitySelective(yxCcywWeatherHttpstatus);
         System.out.println(Objects.isNull(httpstatus) ? "object is null" : httpstatus.getMessage());*/
 
+        /*YxCcywWeatherDatatitle datatitle = yxCcywWeatherDatatitleService.selectByPrimaryKey("20180101226");
+        System.out.println(datatitle.getGanmao());
+        YxCcywWeatherDatatitle datatitle1 = new YxCcywWeatherDatatitle();
+        datatitle1.setDatatitleid("20180101226");
+        datatitle1.setGanmao("儿童、老年人及心脏、呼吸系统疾病患者人群应减少长时间或高强度户外锻炼.............");
+        yxCcywWeatherDatatitleService.updateByPrimaryKeySelective(datatitle1);
+        YxCcywWeatherDatatitle datatitle2 = yxCcywWeatherDatatitleService.selectByPrimaryKey("20180101226");
+        System.out.println(datatitle2.getGanmao());*/
+
         /*YxCcywWeatherDatatitle datatitle = yxCcywWeatherDatatitleService.selectByStatusId("20180101226");
-        System.out.println(datatitle.getGanmao());*/
+        System.out.println(new Gson().toJson(datatitle));
+        List<YxCcywWeatherData> datas = yxCcywWeatherDataService.selectByStatusId("20180101226");
+        System.out.println(new Gson().toJson(datas));*/
 
-        /*List<YxCcywWeatherData> datas = yxCcywWeatherDataService.selectByStatusId("20180101226");
-        datas.forEach(item -> System.out.println(item.getNotice()));*/
+        YxCcywWeatherHttpstatus record = new YxCcywWeatherHttpstatus();
+        record.setCity("成都");
+        record.setDate("2018-01-01");
+        YxCcywWeatherHttpstatus httpstatus = yxCcywWeatherHttpstatusService.selectByEntitySelective(record);
+        System.out.println(new Gson().toJson(httpstatus));
+        YxCcywWeatherHttpstatus httpstatus2 = yxCcywWeatherHttpstatusService.selectByEntitySelective(record);
+        System.out.println(new Gson().toJson(httpstatus2));
 
-        System.out.println(messageService.getWeatherContent("遂宁"));
+        /*System.out.println(messageService.getWeatherContent("遂宁"));*/
+    }
+
+    @Test
+    public void daoSelect() throws Exception {
+        YxCcywWeatherHttpstatus httpstatus = yxCcywWeatherHttpstatusMapper.selectByPrimaryKey("20180101226");
+        System.out.println(new Gson().toJson(httpstatus));
+        YxCcywWeatherHttpstatus httpstatus2 = yxCcywWeatherHttpstatusMapper.selectByPrimaryKey("20180101226");
+        System.out.println(new Gson().toJson(httpstatus2));
     }
 }

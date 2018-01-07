@@ -18,5 +18,7 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--允许JDBC支持自动生成主键,需要驱动的兼容-->
         <setting name="useGeneratedKeys" value="true"/>
+        <!--控制台显示SQL语句，mybatis的日志打印方式比较多，SLF4J | LOG4J | LOG4J2 | JDK_LOGGING | COMMONS_LOGGING | STDOUT_LOGGING | NO_LOGGING-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
 </configuration>

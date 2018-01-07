@@ -1,5 +1,6 @@
 package cn.com.ccyw.wechat.manager.dao.timer;
 
+import cn.com.ccyw.wechat.common.cons.Constants;
 import cn.com.ccyw.wechat.common.utils.DateUtil;
 import cn.com.ccyw.wechat.common.utils.HttpClientUtil;
 import cn.com.ccyw.wechat.common.utils.JsonUtil;
@@ -54,7 +55,7 @@ public class WeatherTaskDao {
         YxCcywWeatherHttpstatus yxCcywWeatherHttpstatus = null;
         if (httpstatus.getStatus() == HttpStatus.SC_OK) {
             yxCcywWeatherHttpstatus = new YxCcywWeatherHttpstatus();
-            String statusid = httpstatus.getDate() + httpstatus.getCount();
+            String statusid = httpstatus.getDate() + StringUtil.num2Str(httpstatus.getCount(), Constants.HTTP_STATUS_ID_WS);
             yxCcywWeatherHttpstatus.setStatusid(statusid);
             yxCcywWeatherHttpstatus.setDate(DateUtil.formatDate(DateUtil.parseDate(httpstatus.getDate(), DatePattern.PURE_DATE_PATTERN)));
             yxCcywWeatherHttpstatus.setMessage(httpstatus.getMessage());
@@ -76,7 +77,7 @@ public class WeatherTaskDao {
         if (httpstatus.getStatus() == HttpStatus.SC_OK) {
             Datatitle datatitle = httpstatus.getData();
             yxCcywWeatherDatatitle = new YxCcywWeatherDatatitle();
-            String statusid = httpstatus.getDate() + httpstatus.getCount();
+            String statusid = httpstatus.getDate() + StringUtil.num2Str(httpstatus.getCount(), Constants.HTTP_STATUS_ID_WS);
             yxCcywWeatherDatatitle.setDatatitleid(statusid);
             yxCcywWeatherDatatitle.setStatusid(statusid);
             yxCcywWeatherDatatitle.setShidu(datatitle.getShidu());
@@ -101,13 +102,13 @@ public class WeatherTaskDao {
             Datatitle datatitle = httpstatus.getData();
             List<Data> dataLst = datatitle.getForecast();
             dataLst.add(0, datatitle.getYesterday());
-            String statusid = httpstatus.getDate() + httpstatus.getCount();
+            String statusid = httpstatus.getDate() + StringUtil.num2Str(httpstatus.getCount(), Constants.HTTP_STATUS_ID_WS);
             for (int i = 0; i < dataLst.size(); i++) {
                 Data data = dataLst.get(i);
                 YxCcywWeatherData yxCcywWeatherData = new YxCcywWeatherData();
                 yxCcywWeatherDatas.add(yxCcywWeatherData);
 
-                yxCcywWeatherData.setDataid(statusid + StringUtil.num2Str(i + 1, 3));
+                yxCcywWeatherData.setDataid(statusid + StringUtil.num2Str(i + 1, Constants.DADA_ID_WS));
                 yxCcywWeatherData.setStatusid(statusid);
                 yxCcywWeatherData.setDate(data.getDate());
                 yxCcywWeatherData.setSunrise(data.getSunrise());

@@ -9,17 +9,15 @@ import cn.com.ccyw.wechat.manager.entity.core.response.TextMessage;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherData;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherDatatitle;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherHttpstatus;
-import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherDataMapper;
-import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherDatatitleMapper;
-import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherHttpstatusMapper;
 import cn.com.ccyw.wechat.manager.service.core.MessageService;
+import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDataService;
+import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDatatitleService;
+import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherHttpstatusService;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,11 +40,11 @@ public class MessageServiceImpl implements MessageService {
     @Autowired
     private WeatherTaskDao weatherTaskDao;
     @Autowired
-    private YxCcywWeatherHttpstatusMapper yxCcywWeatherHttpstatusMapper;
+    private YxCcywWeatherHttpstatusService yxCcywWeatherHttpstatusService;
     @Autowired
-    private YxCcywWeatherDatatitleMapper yxCcywWeatherDatatitleMapper;
+    private YxCcywWeatherDatatitleService yxCcywWeatherDatatitleService;
     @Autowired
-    private YxCcywWeatherDataMapper yxCcywWeatherDataMapper;
+    private YxCcywWeatherDataService yxCcywWeatherDataService;
 
     /**
      * 解析微信发来的请求(XML)
@@ -116,10 +114,10 @@ public class MessageServiceImpl implements MessageService {
         YxCcywWeatherHttpstatus yxCcywWeatherHttpstatus = new YxCcywWeatherHttpstatus();
         yxCcywWeatherHttpstatus.setDate(DateUtil.formatDate(new Date()));
         yxCcywWeatherHttpstatus.setCity(city);
-        YxCcywWeatherHttpstatus httpstatus = yxCcywWeatherHttpstatusMapper.selectByEntitySelective(yxCcywWeatherHttpstatus);
+        YxCcywWeatherHttpstatus httpstatus = yxCcywWeatherHttpstatusService.selectByEntitySelective(yxCcywWeatherHttpstatus);
         if (Objects.nonNull(httpstatus)) {
-            YxCcywWeatherDatatitle datatitle = yxCcywWeatherDatatitleMapper.selectByStatusId(httpstatus.getStatusid());
-            List<YxCcywWeatherData> datas = yxCcywWeatherDataMapper.selectByStatusId(httpstatus.getStatusid());
+            YxCcywWeatherDatatitle datatitle = yxCcywWeatherDatatitleService.selectByStatusId(httpstatus.getStatusid());
+            List<YxCcywWeatherData> datas = yxCcywWeatherDataService.selectByStatusId(httpstatus.getStatusid());
             content = messageDao.formatWeatherData(httpstatus, datatitle, datas);
         } else {
             Httpstatus status = weatherTaskDao.getWeatherData(city);
@@ -131,9 +129,9 @@ public class MessageServiceImpl implements MessageService {
                 content = messageDao.formatWeatherData(httpstatus, datatitle, datas);
 
                 //入库
-                yxCcywWeatherHttpstatusMapper.insertSelective(httpstatus);
-                yxCcywWeatherDatatitleMapper.insertSelective(datatitle);
-                yxCcywWeatherDataMapper.batchInsert(datas);
+                yxCcywWeatherHttpstatusService.insertSelective(httpstatus);
+                yxCcywWeatherDatatitleService.insertSelective(datatitle);
+                yxCcywWeatherDataService.batchInsert(datas);
             }
         }
         return content;

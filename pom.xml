@@ -32,8 +32,14 @@
         <mysql.connector.version>5.1.42</mysql.connector.version>
         <druid.version>1.1.6</druid.version>
 
+        <!--缓存-->
+        <net.sf.ehcache.version>2.10.4</net.sf.ehcache.version>
+        <ehcache.version>3.4.0</ehcache.version>
+
         <javaee.api.version>8.0</javaee.api.version>
         <javax.servlet.api.version>4.0.0</javax.servlet.api.version>
+        <jstl.version>1.2</jstl.version>
+        <jsp.api.version>2.2</jsp.api.version>
 
         <httpclient.version>4.5.4</httpclient.version>
         <jackson.databind.version>2.9.3</jackson.databind.version>
@@ -41,7 +47,6 @@
         <!--工具包-->
         <hutool.all.version>3.3.0</hutool.all.version>
 
-        <commons.lang.version>2.6</commons.lang.version>
         <commons.lang3.version>3.7</commons.lang3.version>
         <commons.io.version>2.5</commons.io.version>
         <commons.fileupload.version>1.3.3</commons.fileupload.version>
@@ -200,6 +205,18 @@
             </dependency>
             <!--alibaba druid连接池 end-->
 
+            <!--缓存框架-->
+            <dependency>
+                <groupId>net.sf.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${net.sf.ehcache.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache.version}</version>
+            </dependency>
+
             <!--java ee jar包 start-->
             <dependency>
                 <groupId>javax</groupId>
@@ -215,6 +232,18 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${javax.servlet.api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!--jstl标签-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp.api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!--servlet api end-->
@@ -251,11 +280,6 @@
                 <groupId>com.xiaoleilu</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.all.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons.lang.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>

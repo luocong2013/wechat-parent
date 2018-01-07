@@ -4,6 +4,8 @@ import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherDatatitle;
 import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherDatatitleMapper;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherDatatitleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,6 +21,13 @@ public class YxCcywWeatherDatatitltServiceImpl implements YxCcywWeatherDatatitle
     @Autowired
     private YxCcywWeatherDatatitleMapper yxCcywWeatherDatatitleMapper;
 
+    /**
+     * 删除数据
+     * 并清除缓存
+     * @param datatitleid
+     * @return
+     */
+    @CacheEvict(value = "weatherCache", key = "#root.target + #datatitleid")
     @Override
     public int deleteByPrimaryKey(String datatitleid) {
         return yxCcywWeatherDatatitleMapper.deleteByPrimaryKey(datatitleid);
@@ -34,21 +43,49 @@ public class YxCcywWeatherDatatitltServiceImpl implements YxCcywWeatherDatatitle
         return yxCcywWeatherDatatitleMapper.insertSelective(record);
     }
 
+    /**
+     * 通过datatitleid查询数据
+     * 并将返回值进行缓存
+     * @param datatitleid
+     * @return
+     */
+    @Cacheable(value = "weatherCache", key = "#root.target + #datatitleid")
     @Override
     public YxCcywWeatherDatatitle selectByPrimaryKey(String datatitleid) {
         return yxCcywWeatherDatatitleMapper.selectByPrimaryKey(datatitleid);
     }
 
+    /**
+     * 修改数据
+     * 并清除缓存
+     * @param record
+     * @return
+     */
+    @CacheEvict(value = "weatherCache", key = "#root.target + #record.datatitleid")
     @Override
     public int updateByPrimaryKeySelective(YxCcywWeatherDatatitle record) {
         return yxCcywWeatherDatatitleMapper.updateByPrimaryKeySelective(record);
     }
 
+    /**
+     * 修改数据
+     * 并清除缓存
+     * @param record
+     * @return
+     */
+    @CacheEvict(value = "weatherCache", key = "#root.target + #record.datatitleid")
     @Override
     public int updateByPrimaryKey(YxCcywWeatherDatatitle record) {
         return yxCcywWeatherDatatitleMapper.updateByPrimaryKey(record);
     }
 
+    /**
+     * 通过statusid查询数据
+     * 并将返回值进行缓存
+     * @param statusid
+     * @return
+     */
+    @Cacheable(value = "weatherCache", key = "#root.target + #statusid")
     @Override
     public YxCcywWeatherDatatitle selectByStatusId(String statusid) {
         return yxCcywWeatherDatatitleMapper.selectByStatusId(statusid);
