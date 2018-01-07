@@ -5,6 +5,7 @@ import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherHttpstatusMapper;
 import cn.com.ccyw.wechat.manager.service.weather.YxCcywWeatherHttpstatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -85,7 +86,7 @@ public class YxCcywWeatherHttpstatusServiceImpl implements YxCcywWeatherHttpstat
      * @param record
      * @return
      */
-    @Cacheable(value = "weatherCache", key = "#root.target + #record.date + #record.city")
+    @CachePut(value = "weatherCache", key = "#root.target + #record.date + #record.city")
     @Override
     public YxCcywWeatherHttpstatus selectByEntitySelective(YxCcywWeatherHttpstatus record) {
         return yxCcywWeatherHttpstatusMapper.selectByEntitySelective(record);

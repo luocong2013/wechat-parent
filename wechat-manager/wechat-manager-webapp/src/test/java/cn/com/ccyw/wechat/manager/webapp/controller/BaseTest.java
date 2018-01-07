@@ -2,7 +2,6 @@ package cn.com.ccyw.wechat.manager.webapp.controller;
 
 import cn.com.ccyw.wechat.common.utils.StringUtil;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherData;
-import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherDatatitle;
 import cn.com.ccyw.wechat.manager.entity.weather.YxCcywWeatherHttpstatus;
 import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherDataMapper;
 import cn.com.ccyw.wechat.manager.mapper.weather.YxCcywWeatherDatatitleMapper;
@@ -111,6 +110,16 @@ public class BaseTest {
         record.setDate("2018-01-01");
         YxCcywWeatherHttpstatus httpstatus = yxCcywWeatherHttpstatusService.selectByEntitySelective(record);
         System.out.println(new Gson().toJson(httpstatus));
+
+        YxCcywWeatherHttpstatus h = new YxCcywWeatherHttpstatus();
+        h.setStatusid("201712310002");
+        h.setDate("2018-01-01");
+        h.setMessage("今天天气晴朗");
+        h.setStatus(200);
+        h.setCity("成都");
+        h.setCount(605);
+        yxCcywWeatherHttpstatusService.insert(h);
+
         YxCcywWeatherHttpstatus httpstatus2 = yxCcywWeatherHttpstatusService.selectByEntitySelective(record);
         System.out.println(new Gson().toJson(httpstatus2));
 
