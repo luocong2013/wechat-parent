@@ -7,48 +7,79 @@
 
     <!--使用阿里的druid配置数据源 start-->
     <!--具体查看官网信息：https://github.com/alibaba/druid/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-->
-    <bean id="dataSource" class="${jdbc.druid.driver}" init-method="init" destroy-method="close">
+    <bean id="dataSourceDruid" class="${jdbc.druid.dataSourceClass}" init-method="init" destroy-method="close">
         <!--下面的变量读取jdbc.properties的-->
-        <property name="url" value="${jdbc.druid.url}" />
-        <property name="username" value="${jdbc.druid.username}" />
-        <property name="password" value="${jdbc.druid.password}" />
-        <!--初始化连接大小-->
-        <property name="initialSize" value="${jdbc.druid.initialSize}" />
+        <!--这一项可配可不配，如果不配置druid会根据url自动识别dbType，然后选择相应的driverClassName(建议配置下)-->
+        <property name="driverClassName" value="${jdbc.druid.driverClassName}"/>
+        <!--连接数据库的url-->
+        <property name="url" value="${jdbc.druid.url}"/>
+        <!--连接数据库的用户名-->
+        <property name="username" value="${jdbc.druid.username}"/>
+        <!--连接数据库的密码-->
+        <property name="password" value="${jdbc.druid.password}"/>
+        <!--初始化时建立物理连接的个数-->
+        <property name="initialSize" value="${jdbc.druid.initialSize}"/>
         <!--初始化连接池最大使用连接数量-->
-        <property name="maxActive" value="${jdbc.druid.maxActive}" />
+        <property name="maxActive" value="${jdbc.druid.maxActive}"/>
         <!--初始化连接池最小空闲-->
-        <property name="minIdle" value="${jdbc.druid.minIdle}" />
+        <property name="minIdle" value="${jdbc.druid.minIdle}"/>
         <!--获取连接最大等待时间，单位毫秒-->
-        <property name="maxWait" value="${jdbc.druid.maxWait}" />
+        <property name="maxWait" value="${jdbc.druid.maxWait}"/>
         <!--配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒-->
-        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.druid.timeBetweenEvictionRunsMillis}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${jdbc.druid.timeBetweenEvictionRunsMillis}"/>
         <!--配置一个连接在池中最小生存的时间，单位是毫秒-->
-        <property name="minEvictableIdleTimeMillis" value="${jdbc.druid.minEvictableIdleTimeMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.druid.minEvictableIdleTimeMillis}"/>
 
         <!--打开PSCache，并且指定每个连接上PSCache的大小-->
         <!--如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。分库分表较多的数据库，建议配置为false-->
-        <property name="poolPreparedStatements" value="${jdbc.druid.poolPreparedStatements}" />
-        <property name="maxPoolPreparedStatementPerConnectionSize" value="${jdbc.druid.maxPoolPreparedStatementPerConnectionSize}" />
+        <property name="poolPreparedStatements" value="${jdbc.druid.poolPreparedStatements}"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize"
+                  value="${jdbc.druid.maxPoolPreparedStatementPerConnectionSize}"/>
 
-        <property name="validationQuery" value="${jdbc.druid.validationQuery}" />
-        <property name="testWhileIdle" value="${jdbc.druid.testWhileIdle}" />
-        <property name="testOnBorrow" value="${jdbc.druid.testOnBorrow}" />
-        <property name="testOnReturn" value="${jdbc.druid.testOnReturn}" />
+        <property name="validationQuery" value="${jdbc.druid.validationQuery}"/>
+        <property name="testWhileIdle" value="${jdbc.druid.testWhileIdle}"/>
+        <property name="testOnBorrow" value="${jdbc.druid.testOnBorrow}"/>
+        <property name="testOnReturn" value="${jdbc.druid.testOnReturn}"/>
 
         <!--当程序存在缺陷时，申请的连接忘记关闭，这时候，就存在连接泄漏了。Druid提供了RemoveAbandanded相关配置，用来关闭长时间不使用的连接-->
         <!--配置removeAbandoned对性能会有一些影响，建议怀疑存在泄漏之后再打开。在下面的配置中，如果连接超过30分钟未关闭，就会被强行回收，并且日志记录连接申请时的调用堆栈-->
         <!--具体查看官网信息：https://github.com/alibaba/druid/wiki/%E8%BF%9E%E6%8E%A5%E6%B3%84%E6%BC%8F%E7%9B%91%E6%B5%8B-->
         <!--打开removeAbandoned功能-->
-        <property name="removeAbandoned" value="${jdbc.druid.removeAbandoned}" />
+        <property name="removeAbandoned" value="${jdbc.druid.removeAbandoned}"/>
         <!--1800秒，也就是30分钟-->
-        <property name="removeAbandonedTimeout" value="${jdbc.druid.removeAbandonedTimeout}" />
+        <property name="removeAbandonedTimeout" value="${jdbc.druid.removeAbandonedTimeout}"/>
         <!--关闭abanded连接时输出错误日志-->
-        <property name="logAbandoned" value="${jdbc.druid.logAbandoned}" />
+        <property name="logAbandoned" value="${jdbc.druid.logAbandoned}"/>
 
         <!--配置监控统计拦截的filters-->
         <!--具体查看官网信息：https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter-->
         <!--mergeSql可以合并输出的sql，方便查看，但是在mybatis框架中使用这个则无法监控sql,需要用stat-->
-        <property name="filters" value="${jdbc.druid.filters}" />
+        <property name="filters" value="${jdbc.druid.filters}"/>
     </bean>
     <!--使用阿里的druid配置数据源 end-->
+
+    <!--使用HikariCP配置数据源 start-->
+    <bean id="dataSource" class="${jdbc.hikaricp.dataSourceClass}" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.hikaricp.driverClassName}"/>
+        <!--连接数据库的url-->
+        <property name="jdbcUrl" value="${jdbc.hikaricp.url}"/>
+        <!--连接数据库的用户名-->
+        <property name="username" value="${jdbc.hikaricp.username}"/>
+        <!--连接数据库的密码-->
+        <property name="password" value="${jdbc.hikaricp.password}"/>
+        <!--测试连接-->
+        <property name="connectionTestQuery" value="${jdbc.hikaricp.connectionTestQuery}"/>
+        <!--连接只读数据库时配置为true，保证安全-->
+        <property name="readOnly" value="${jdbc.hikaricp.readOnly}"/>
+        <!--等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 缺省:30秒-->
+        <property name="connectionTimeout" value="${jdbc.hikaricp.connectionTimeout}"/>
+        <!--一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟-->
+        <property name="idleTimeout" value="${jdbc.hikaricp.idleTimeout}"/>
+        <!--一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒，参考MySQL wait_timeout参数（show variables like '%timeout%';）-->
+        <property name="maxLifetime" value="${jdbc.hikaricp.maxLifetime}"/>
+        <!--连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)-->
+        <property name="maximumPoolSize" value="${jdbc.hikaricp.maximumPoolSize}"/>
+        <property name="minimumIdle" value="${jdbc.hikaricp.minimumIdle}"/>
+    </bean>
+    <!--使用HikariCP配置数据源 end-->
 </beans>
