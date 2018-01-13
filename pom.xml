@@ -30,11 +30,13 @@
 
         <!--mysql数据库连接驱动-->
         <mysql.connector.version>5.1.42</mysql.connector.version>
+        <!--阿里druid连接池-->
         <druid.version>1.1.6</druid.version>
+        <hikaricp.version>2.7.4</hikaricp.version>
 
         <!--缓存-->
-        <net.sf.ehcache.version>2.10.4</net.sf.ehcache.version>
-        <ehcache.version>3.4.0</ehcache.version>
+        <ehcache.version>2.10.4</ehcache.version>
+        <ehcache3.version>3.4.0</ehcache3.version>
 
         <javaee.api.version>8.0</javaee.api.version>
         <javax.servlet.api.version>4.0.0</javax.servlet.api.version>
@@ -205,17 +207,26 @@
             </dependency>
             <!--alibaba druid连接池 end-->
 
-            <!--缓存框架-->
+            <!--HikariCP连接池 start-->
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
+            </dependency>
+            <!--HikariCP连接池 end-->
+
+            <!--缓存框架 start-->
             <dependency>
                 <groupId>net.sf.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
-                <version>${net.sf.ehcache.version}</version>
+                <version>${ehcache.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
-                <version>${ehcache.version}</version>
+                <version>${ehcache3.version}</version>
             </dependency>
+            <!--缓存框架 end-->
 
             <!--java ee jar包 start-->
             <dependency>
