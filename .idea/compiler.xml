@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wechat-common" />
+        <module name="wechat-manager-entity" />
+        <module name="wechat-manager-mapper" />
+        <module name="wechat-manager-service" />
+        <module name="wechat-manager-webapp" />
+        <module name="wechat-menu" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="wechat-common" target="1.8" />
+      <module name="wechat-manager" target="1.5" />
+      <module name="wechat-manager-entity" target="1.8" />
+      <module name="wechat-manager-mapper" target="1.8" />
+      <module name="wechat-manager-service" target="1.8" />
+      <module name="wechat-manager-webapp" target="1.8" />
+      <module name="wechat-menu" target="1.8" />
+      <module name="wechat-parent" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

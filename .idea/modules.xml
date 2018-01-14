@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wechat-common/wechat-common.iml" filepath="$PROJECT_DIR$/wechat-common/wechat-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechat-manager/wechat-manager.iml" filepath="$PROJECT_DIR$/wechat-manager/wechat-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechat-manager/wechat-manager-entity/wechat-manager-entity.iml" filepath="$PROJECT_DIR$/wechat-manager/wechat-manager-entity/wechat-manager-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechat-manager/wechat-manager-mapper/wechat-manager-mapper.iml" filepath="$PROJECT_DIR$/wechat-manager/wechat-manager-mapper/wechat-manager-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechat-manager/wechat-manager-service/wechat-manager-service.iml" filepath="$PROJECT_DIR$/wechat-manager/wechat-manager-service/wechat-manager-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechat-manager/wechat-manager-webapp/wechat-manager-webapp.iml" filepath="$PROJECT_DIR$/wechat-manager/wechat-manager-webapp/wechat-manager-webapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechat-menu/wechat-menu.iml" filepath="$PROJECT_DIR$/wechat-menu/wechat-menu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechat-parent.iml" filepath="$PROJECT_DIR$/wechat-parent.iml" />
+    </modules>
+  </component>
+</project>
