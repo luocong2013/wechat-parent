@@ -22,15 +22,15 @@
         <!--spring/mybatis-->
         <spring.version>4.3.13.RELEASE</spring.version>
         <mybatis.version>3.4.5</mybatis.version>
-        <mybatis.spring.version>1.3.1</mybatis.spring.version>
-        <mybatis.mapper.version>3.5.0</mybatis.mapper.version>
-        <mybatis.generator.version>1.3.5</mybatis.generator.version>
+        <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <mybatis-mapper.version>3.5.0</mybatis-mapper.version>
+        <mybatis-generator.version>1.3.5</mybatis-generator.version>
 
         <!--下面这个是spring aop需要用到的包-->
         <aspectjweaver.version>1.8.13</aspectjweaver.version>
 
         <!--mysql数据库连接驱动-->
-        <mysql.connector.version>5.1.42</mysql.connector.version>
+        <mysql-connector.version>5.1.42</mysql-connector.version>
         <!--阿里druid连接池-->
         <druid.version>1.1.6</druid.version>
         <hikaricp.version>2.7.4</hikaricp.version>
@@ -39,23 +39,23 @@
         <ehcache.version>2.10.4</ehcache.version>
         <ehcache3.version>3.4.0</ehcache3.version>
 
-        <javaee.api.version>8.0</javaee.api.version>
-        <javax.servlet.api.version>4.0.0</javax.servlet.api.version>
+        <javaee-api.version>8.0</javaee-api.version>
+        <javax-servlet-api.version>4.0.0</javax-servlet-api.version>
         <jstl.version>1.2</jstl.version>
-        <jsp.api.version>2.2</jsp.api.version>
+        <jsp-api.version>2.2</jsp-api.version>
 
         <httpclient.version>4.5.4</httpclient.version>
-        <jackson.databind.version>2.9.3</jackson.databind.version>
+        <jackson-databind.version>2.9.3</jackson-databind.version>
 
         <!--工具包-->
-        <hutool.all.version>3.3.0</hutool.all.version>
+        <hutool-all.version>3.3.0</hutool-all.version>
 
-        <commons.lang3.version>3.7</commons.lang3.version>
-        <commons.io.version>2.5</commons.io.version>
-        <commons.fileupload.version>1.3.3</commons.fileupload.version>
-        <commons.collections.version>3.2.2</commons.collections.version>
-        <commons.beanutils.version>1.9.3</commons.beanutils.version>
-        <commons.codec.version>1.11</commons.codec.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
+        <commons-io.version>2.5</commons-io.version>
+        <commons-fileupload.version>1.3.3</commons-fileupload.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-beanutils.version>1.9.3</commons-beanutils.version>
+        <commons-codec.version>1.11</commons-codec.version>
 
         <junit.version>4.12</junit.version>
         <gson.version>2.8.2</gson.version>
@@ -70,18 +70,18 @@
         <log4j.version>1.2.17</log4j.version>
 
         <!--plugin-->
-        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
-        <maven.war.plugin.version>3.2.0</maven.war.plugin.version>
-        <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
-        <maven.dependency.plugin.version>3.0.2</maven.dependency.plugin.version>
-        <maven.assembly.plugin.version>3.1.0</maven.assembly.plugin.version>
-        <maven.shade.plugin.version>3.1.0</maven.shade.plugin.version>
-        <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
-        <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
-        <maven.install.plugin.version>2.5.2</maven.install.plugin.version>
-        <maven.clean.plugin.version>3.0.0</maven.clean.plugin.version>
-        <maven.surefire.plugin.version>2.20.1</maven.surefire.plugin.version>
-        <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <maven-war-plugin.version>3.2.0</maven-war-plugin.version>
+        <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+        <maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
+        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+        <maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
+        <maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-clean-plugin.version>3.0.0</maven-clean-plugin.version>
+        <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <!--mybatis plugin 设置-->
         <mybatis.plugin.generator.configurationFile>
             ${project.basedir}/src/main/resources/generator/generatorConfig.xml
@@ -177,19 +177,19 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
-                <version>${mybatis.spring.version}</version>
+                <version>${mybatis-spring.version}</version>
             </dependency>
             <!--mybatis mapper-->
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper</artifactId>
-                <version>${mybatis.mapper.version}</version>
+                <version>${mybatis-mapper.version}</version>
             </dependency>
             <!--mybatis generator-->
             <dependency>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-core</artifactId>
-                <version>${mybatis.generator.version}</version>
+                <version>${mybatis-generator.version}</version>
             </dependency>
             <!--mybatis end-->
 
@@ -204,7 +204,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.version}</version>
+                <version>${mysql-connector.version}</version>
             </dependency>
             <!--mysql end-->
 
@@ -241,7 +241,7 @@
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
-                <version>${javaee.api.version}</version>
+                <version>${javaee-api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!--java ee jar包 end-->
@@ -251,7 +251,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>${javax.servlet.api.version}</version>
+                <version>${javax-servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!--jstl标签-->
@@ -263,7 +263,7 @@
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>jsp-api</artifactId>
-                <version>${jsp.api.version}</version>
+                <version>${jsp-api.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!--servlet api end-->
@@ -290,7 +290,7 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${jackson-databind.version}</version>
             </dependency>
             <!--jackson databind end-->
 
@@ -299,38 +299,38 @@
             <dependency>
                 <groupId>com.xiaoleilu</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>${hutool.all.version}</version>
+                <version>${hutool-all.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>${commons.lang3.version}</version>
+                <version>${commons-lang3.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>${commons.io.version}</version>
+                <version>${commons-io.version}</version>
             </dependency>
             <!--上传组件包-->
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
-                <version>${commons.fileupload.version}</version>
+                <version>${commons-fileupload.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-collections</groupId>
                 <artifactId>commons-collections</artifactId>
-                <version>${commons.collections.version}</version>
+                <version>${commons-collections.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>${commons.beanutils.version}</version>
+                <version>${commons-beanutils.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>${commons.codec.version}</version>
+                <version>${commons-codec.version}</version>
             </dependency>
             <!--测试-->
             <dependency>
@@ -384,7 +384,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven.compiler.plugin.version}</version>
+                    <version>${maven-compiler-plugin.version}</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -396,84 +396,84 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>${maven.war.plugin.version}</version>
+                    <version>${maven-war-plugin.version}</version>
                 </plugin>
 
                 <!--jar打包插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven.jar.plugin.version}</version>
+                    <version>${maven-jar-plugin.version}</version>
                 </plugin>
 
                 <!--dependency插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>${maven.dependency.plugin.version}</version>
+                    <version>${maven-dependency-plugin.version}</version>
                 </plugin>
 
                 <!--assembly插件（打jar包）-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>${maven.assembly.plugin.version}</version>
+                    <version>${maven-assembly-plugin.version}</version>
                 </plugin>
 
                 <!--shade插件（打jar包）-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>${maven.shade.plugin.version}</version>
+                    <version>${maven-shade-plugin.version}</version>
                 </plugin>
 
                 <!--resource插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>${maven.resources.plugin.version}</version>
+                    <version>${maven-resources-plugin.version}</version>
                 </plugin>
 
                 <!--source插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven.source.plugin.version}</version>
+                    <version>${maven-source-plugin.version}</version>
                 </plugin>
 
                 <!--install插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>${maven.install.plugin.version}</version>
+                    <version>${maven-install-plugin.version}</version>
                 </plugin>
 
                 <!--clean插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven.clean.plugin.version}</version>
+                    <version>${maven-clean-plugin.version}</version>
                 </plugin>
 
                 <!--surefire插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven.surefire.plugin.version}</version>
+                    <version>${maven-surefire-plugin.version}</version>
                 </plugin>
 
                 <!--deploy插件-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven.deploy.plugin.version}</version>
+                    <version>${maven-deploy-plugin.version}</version>
                 </plugin>
 
                 <!--mybatis generator maven plugin-->
                 <plugin>
                     <groupId>org.mybatis.generator</groupId>
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
-                    <version>${mybatis.generator.version}</version>
+                    <version>${mybatis-generator.version}</version>
                     <configuration>
                         <configurationFile>${mybatis.plugin.generator.configurationFile}</configurationFile>
                         <verbose>true</verbose>
@@ -485,12 +485,12 @@
                         <dependency>
                             <groupId>mysql</groupId>
                             <artifactId>mysql-connector-java</artifactId>
-                            <version>${mysql.connector.version}</version>
+                            <version>${mysql-connector.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>tk.mybatis</groupId>
                             <artifactId>mapper</artifactId>
-                            <version>${mybatis.mapper.version}</version>
+                            <version>${mybatis-mapper.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
