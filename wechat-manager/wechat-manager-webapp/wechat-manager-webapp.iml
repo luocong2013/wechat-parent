@@ -10,21 +10,32 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
         </sourceRoots>
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
+        <fileset id="web application context" name="MVC application context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-transaction.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-mybatis.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-dataSource.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-ehcache.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-timeTask.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext.xml</file>
+        </fileset>
+        <fileset id="web SpringMVC servlet context" name="MVC SpringMVC servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-mvc.xml</file>
+        </fileset>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-dataSource.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-mybatis.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-transaction.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-mvc.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-timeTask.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-ehcache.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-mybatis.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-timeTask.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-transaction.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-mvc.xml</file>
         </fileset>
       </configuration>
     </facet>
